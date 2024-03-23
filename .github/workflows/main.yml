@@ -1,0 +1,14 @@
+name: Open Directory Downloader
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        required: true
+jobs:
+   odd:
+    name: Open Directory Downloader
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Code
+        run: chmod +x odd && ./odd -u "${{github.event.inputs.urls}}" -l -q
